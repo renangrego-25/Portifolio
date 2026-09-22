@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Pixel&family=Jersey+10&display=swap');
+
+:root{
+    --verdeescuro: #071b10;
+    --verdemédio: #084541;
+    --verdeclaro: #288b6f;
+    --verdelima: #a8ab30;
+    --verdemusgo: #c0bd6c;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-image: url(../images/background.jfif);
+    background-position: center;
+    background-size: contain;
+    background-repeat: repeat-y;
+}
+
+h1{
+    font-family: "jersey 10";
+    font-size: 7rem;
+    text-transform: uppercase;
+}
+
+h2{
+    font-family: "jersey 10";
+    font-size: 5rem;
+    text-transform: uppercase;
+    font-weight: 200;
+}
+
+p{
+    font-family: "geist pixel";
+    color: white;
+}
+
+a{
+    font-family: "jersey 10";
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
+}
+
+button{
+    background-color: #a8ab30;
+    padding: 15px 40px;
+    font-family: "jersey 10";
+    font-size: 25px;
+    text-transform: uppercase;
+    border: 5px solid #084541;
+    cursor: pointer;
+}
+
+button:active{
+    background-color: #c0bd6c;
+    transform: scale(0.9);
+}
+
+.start{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.start img{
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    height: 100vh;
+    transition: 2s ease-in-out;
+    border-bottom: 10px solid #084541;
+}
+
+.start img.transform{
+    z-index: 90;
+    transform: scale(1.3);
+    position: absolute;
+}
+
+.start .text-start{
+    top: 110px;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 1000;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.1s ease-in-out;
+}
+
+.start .text-start.hidden{
+    visibility: hidden;
+    opacity: 0;
+}
+
+#startbutton{
+    margin-top: 190px;
+}
+
+.content-start{
+    width: 100%;
+    margin-top: 30px;
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    z-index: 100;
+    visibility: hidden;
+    opacity: 0;
+    transition: 2s ease-in-out;
+}
+
+.content-start.active{
+    visibility: visible;
+    opacity: 1;
+}
+
+.nav{
+    display: block;
+    background-color: #288b6f;
+    margin-inline: 150px;
+    padding: 25px;
+    border: 5px solid var(--verdemédio);
+}
+
+.content-start .nav a{
+    padding-inline: 20px;
+}
+
+.content-start .nav a:active{
+    border-bottom: 4px solid var(--verdemédio);
+    border-right: 4px solid var(--verdelima);
+}
+
+.content-start .text{
+    margin-top: 20px;
+    text-align: left;
+    margin-inline: 150px;
+
+    h2{
+        color: var(--verdeescuro);
+        font-size: 3rem;
+    }
+}
+
+.navmobile{
+    display: none;
+    position: relative;
+    text-align: left;
+    margin-left: 10px;
+    height: 100vh;
+    z-index: 95;
+    transition: 0.5s ease-in-out;
+    transform: translateX(15px);
+}
+
+.navmobile.active{
+    display: block;
+}
+
+.navopen{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--verdeclaro);
+    border: 5px solid var(--verdemédio);
+    width: 400px;
+    gap: 20px;
+    padding: 10px;
+}
+
+.navopen a:active{
+    border-bottom: 4px solid var(--verdemédio);
+    border-right: 4px solid var(--verdelima);
+}
+
+.textmobile{
+    display: none;
+    text-align: left;
+    margin-left: 10px;
+
+    h1{
+        font-size: 5rem;
+        margin-top: 50px;
+    }
+    h2{
+        font-size: 3rem;
+    }
+}
+
+@media screen and (max-width:1000px) {
+    .nav{
+        display: none;
+    } 
+    .text{
+        display: none;
+    }
+
+    .textmobile{
+        display: block;
+    }
+}
+
+.sobremim{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 150;
+    margin-top: -50px;
+    margin-inline: 100px;
+    background-color: var(--verdeclaro);
+    border: 10px solid var(--verdemédio);
+    padding: 20px;
+    height: ;
+}
+
+.sobremim h2{
+    width: 100%;
+    text-align: center;
+    color: white;
+    padding-bottom: 20px;
+}
+
+.sobremim .about{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.sobremim .about img{
+    margin-bottom: -20px;
+}
+.sobremim .about p{
+    width: 700px;
+    text-align: left;
+}
