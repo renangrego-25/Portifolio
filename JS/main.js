@@ -24,3 +24,27 @@ document.getElementById('btnmenumobile').addEventListener('click', () => {
     })
     
 })
+
+// curriculo 
+
+const curriculo = document.getElementById('curriculo');
+const abrirCurri = document.getElementById('abrircurri');
+const btnCurriMenu = document.getElementById('btncurrimenu');
+const btnCurriMenuMbl = document.getElementById('btncurrimenumbl');
+
+function abrirCurriculo() {
+
+    curriculo.classList.add('active');
+
+}
+
+function fecharCurriculo() {
+
+    curriculo.classList.remove('active');
+}
+
+abrirCurri.addEventListener('click', abrirCurriculo);
+btnCurriMenu.addEventListener('click', abrirCurriculo);
+btnCurriMenuMbl.addEventListener('click', abrirCurriculo);
+
+const btnFecharCC = document.getElementById('btnfecharcc').addEventListener('click', fecharCurriculo);

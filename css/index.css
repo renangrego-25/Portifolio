@@ -155,7 +155,7 @@ button:active{
 .navmobile{
     display: none;
     position: relative;
-    text-align: left;
+    text-align: center;
     margin-left: 10px;
     height: 100vh;
     z-index: 95;
@@ -185,7 +185,7 @@ button:active{
 
 .textmobile{
     display: none;
-    text-align: left;
+    text-align: center;
     margin-left: 10px;
 
     h1{
@@ -194,19 +194,6 @@ button:active{
     }
     h2{
         font-size: 3rem;
-    }
-}
-
-@media screen and (max-width:1000px) {
-    .nav{
-        display: none;
-    } 
-    .text{
-        display: none;
-    }
-
-    .textmobile{
-        display: block;
     }
 }
 
@@ -221,7 +208,6 @@ button:active{
     background-color: var(--verdeclaro);
     border: 10px solid var(--verdemédio);
     padding: 20px;
-    height: ;
 }
 
 .sobremim h2{
@@ -244,4 +230,108 @@ button:active{
 .sobremim .about p{
     width: 700px;
     text-align: left;
+}
+
+.about a{
+    background-color: var(--verdemusgo);
+    color: var(--verdeescuro);
+    padding-inline: 20px;
+    border: 2px solid var(--verdemédio);
+    cursor: pointer;
+}
+
+.curriculo{
+    display: grid;
+    visibility: hidden;
+    opacity: 0;
+    top: 0;
+    z-index: 1010;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    background-color: rgba(10, 36, 21, 0.7);
+    backdrop-filter: blur(5px);
+    overflow-y: scroll;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s ease-in-out;
+}
+
+
+.curriculo.active{
+    visibility: visible;
+    opacity: 1;
+}
+
+.curriculo img{
+    margin-top: 50px;
+    height: 550px;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
+    transition: 0.5s ease-in-out;
+}
+
+.curriculo img:hover{
+    transform: scale(1.8) translateY(70px);
+}
+
+@media screen and (max-width:1000px) {
+    .nav{
+        display: none;
+    } 
+    .text{
+        display: none;
+    }
+
+    .textmobile{
+        display: block;
+    }
+
+    .curriculo img:hover{
+        transform: none;
+    }
+
+    .sobremim{
+        margin-inline: 10px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .sobremim .about{
+        flex-direction: column;
+    }
+
+    .sobremim .about p{
+        display: flex;
+        flex-direction: column;
+        max-width: 350px;
+        text-align: center;
+    }
+}
+
+.formação{
+    position: relative;
+    text-align: center;
+    align-items: center;
+}
+
+.formação div{
+    position: absolute;
+    top: 0;
+    margin-top: 160px;
+    text-align: center;
+    width: 100%;
+    align-items: center;
+}
+
+.formação div h2{
+    font-size: 50px;
+}
+
+.formação div p{
+    font-size: 20px;
+    color: var(--verdeescuro);
+    font-weight: 800;
 }
