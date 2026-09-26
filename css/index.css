@@ -275,41 +275,6 @@ button:active{
     transform: scale(1.8) translateY(70px);
 }
 
-@media screen and (max-width:1000px) {
-    .nav{
-        display: none;
-    } 
-    .text{
-        display: none;
-    }
-
-    .textmobile{
-        display: block;
-    }
-
-    .curriculo img:hover{
-        transform: none;
-    }
-
-    .sobremim{
-        margin-inline: 10px;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        height: auto;
-    }
-
-    .sobremim .about{
-        flex-direction: column;
-    }
-
-    .sobremim .about p{
-        display: flex;
-        flex-direction: column;
-        max-width: 350px;
-        text-align: center;
-    }
-}
 
 .formação{
     position: relative;
@@ -471,12 +436,18 @@ button:active{
     background-size: cover;
     text-align: center;
     margin-top: 50px;
+    color: white;
 }
 
 .habilidades .container{
     backdrop-filter: blur(3px);
     margin-inline: 100px;
     border: 5px solid white;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.8);
+    
+    .subtitle{
+        text-decoration: underline;
+    }
 }
 
 .habilidades .container .cardh{
@@ -484,4 +455,54 @@ button:active{
     text-align: center;
     justify-content: center;
     display: flex;
+    flex-wrap: wrap;
+}
+
+.habilidades .container .cardh .icons img{
+    transition: 0.2s ease-in-out;
+
+}
+
+.habilidades .container .cardh .icons img:hover{
+    transform: scale(1.1) rotateZ(15deg);
+}
+
+@media screen and (max-width:1000px) {
+    .nav{
+        display: none;
+    } 
+    .text{
+        display: none;
+    }
+
+    .textmobile{
+        display: block;
+    }
+
+    .curriculo img:hover{
+        transform: none;
+    }
+
+    .sobremim{
+        margin-inline: 10px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .sobremim .about{
+        flex-direction: column;
+    }
+
+    .sobremim .about p{
+        display: flex;
+        flex-direction: column;
+        max-width: 350px;
+        text-align: center;
+    }
+
+    .habilidades .container{
+        margin-inline: 20px;
+    }
 }
