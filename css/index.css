@@ -37,6 +37,13 @@ h2{
     font-weight: 200;
 }
 
+h3{
+    font-family: "jersey 10";
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 200;
+}
+
 p{
     font-family: "geist pixel";
     color: white;
@@ -65,7 +72,7 @@ button:active{
 }
 
 .start{
-    display: block;
+    display: none;
     position: relative;
     width: 100%;
     height: 100vh;
@@ -580,4 +587,47 @@ button:active{
         top: 130px;
         height: 80px;
     }
+}
+
+.projetos{
+    text-align: center;
+    margin: 20px;
+}
+
+.projetos .container{
+    background-color: var(--verdemédio);
+    padding: 40px;
+    color: white;
+    border: 8px solid var(--verdeescuro);
+
+}
+
+.projetos .container .cardsp{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.projetos .container .cardsp .proj{
+    background-color: var(--verdeescuro);
+    margin: 20px;
+    padding: 10px;
+    width: 300px;
+    box-shadow: 5px 10px 0px rgba(0, 0, 0, 0.3);
+
+    img{
+        height: 150px;
+    }
+    
+    p{
+        margin-block: 10px;
+    }
+
+    button{
+        padding: 10px 20px;
+    }
+}
+
+.projetos .container .cardsp .proj:hover{
+    border: 5px solid white;
 }
