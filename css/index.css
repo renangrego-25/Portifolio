@@ -72,7 +72,6 @@ button:active{
 }
 
 .start{
-    display: none;
     position: relative;
     width: 100%;
     height: 100vh;
@@ -153,6 +152,10 @@ button:active{
     margin-top: 20px;
     text-align: left;
     margin-inline: 150px;
+    
+    span{
+        color: var(--verdelima)
+    }
 
     h2{
         color: var(--verdeescuro);
@@ -455,6 +458,7 @@ button:active{
     
     .subtitle{
         text-decoration: underline;
+        font-size: 20px;
     }
 }
 
@@ -479,45 +483,6 @@ button:active{
 
 
 
-@media screen and (max-width:1000px) {
-    .nav{
-        display: none;
-    } 
-    .text{
-        display: none;
-    }
-
-    .textmobile{
-        display: block;
-    }
-
-    .curriculo img:hover{
-        transform: none;
-    }
-
-    .sobremim{
-        margin-inline: 10px;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        height: auto;
-    }
-
-    .sobremim .about{
-        flex-direction: column;
-    }
-
-    .sobremim .about p{
-        display: flex;
-        flex-direction: column;
-        max-width: 350px;
-        text-align: center;
-    }
-
-    .habilidades .container{
-        margin-inline: 20px;
-    }
-}
 
 .experiencia{
     background-color: var(--verdeescuro);
@@ -553,7 +518,7 @@ button:active{
     margin-inline: 0px;
     overflow: hidden;
     transition: 0.2s ease-in-out;
-
+    
     h4{
         font-family: "jersey 10";
         font-size: 1.9rem;
@@ -606,6 +571,7 @@ button:active{
     display: flex;
     text-align: center;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .projetos .container .cardsp .proj{
@@ -629,5 +595,103 @@ button:active{
 }
 
 .projetos .container .cardsp .proj:hover{
-    border: 5px solid white;
+    outline: 3px solid white;
+    outline-offset: 0;
+    transform: translateY(-15px);
 }
+
+footer{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+footer .cardfinal{
+    text-align: center;
+    background-image: url(../images/cartafinal.png);
+    margin: 50px;
+    margin-bottom: 0px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+}
+
+footer .cardfinal h1{
+    font-size: 4rem;
+    padding-top: 50px;
+}
+
+footer .cardfinal p{
+    color: #000;
+    padding-block: 20px;
+}
+
+footer .cardfinal a{
+    color: #000;
+    text-decoration: underline;
+}
+
+footer .cardfinal img{
+    height: 300px;
+    width: 450px;
+    align-self: center;
+    margin-top: -10px;
+}
+
+
+    @media screen and (max-width:1000px) {
+        .nav{
+            display: none;
+        } 
+        .text{
+            display: none;
+        }
+    
+        .textmobile{
+            display: block;
+        }
+    
+        .curriculo img:hover{
+            transform: none;
+        }
+    
+        .sobremim{
+            margin-inline: 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            height: auto;
+        }
+    
+        .sobremim .about{
+            flex-direction: column;
+        }
+    
+        .sobremim .about p{
+            display: flex;
+            flex-direction: column;
+            max-width: 350px;
+            text-align: center;
+        }
+    
+        .habilidades .container{
+            margin-inline: 20px;
+        }
+
+        .projetos .container{
+            padding: 20px;
+        }
+
+        .projetos .container .cardsp .proj{
+            width: 500px;
+            margin-block: 10px;
+        }
+
+        footer .cardfinal{
+            background-size: cover;
+            margin-inline: 0px;
+            padding: 10px;
+        }
+    }
