@@ -71,6 +71,7 @@ button:active{
     transform: scale(0.9);
 }
 
+
 .start{
     position: relative;
     width: 100%;
@@ -85,6 +86,10 @@ button:active{
     height: 100vh;
     transition: 2s ease-in-out;
     border-bottom: 10px solid #084541;
+}
+
+.start #bannermobile{
+    display: none;
 }
 
 .start img.transform{
@@ -338,16 +343,21 @@ button:active{
 }
 
 .cursos .container{
+    overflow-x: clip;
+    overflow-y: visible;
+    padding-top: 10px;
+    padding-bottom: 60px;
     display: flex;
-    
 }
 
 .cursos .container .carrosel{
     display: flex;
+    transition: transform 0.4s ease;
 }
 
 .cursos .container .carrosel .conquista{
     display: flex;
+    flex-shrink: 0;
     flex-direction: column;
     text-align: center;
     justify-content: center;
@@ -642,6 +652,26 @@ footer .cardfinal img{
 
 
     @media screen and (max-width:1000px) {
+        .start #bannermobile{
+            display: flex;
+            position: absolute;
+            z-index: 50;
+            height: 100vh;
+        }
+
+        .text-start{
+            display: none;
+        }
+
+        .content-start{
+            visibility: visible;
+            opacity: 1;
+        }
+
+        #banner{
+            display: none;
+        }
+        
         .nav{
             display: none;
         } 
