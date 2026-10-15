@@ -421,7 +421,7 @@ button:active{
     }
 
     button{
-        opacity: 1;
+        opacity: 0;
     }
 }
 
@@ -650,6 +650,13 @@ footer .cardfinal img{
     margin-top: -10px;
 }
 
+.mobilecar{
+    display: none;
+}
+
+.mobiletext{
+    display: none;
+}
 
     @media screen and (max-width:1000px) {
         .start #bannermobile{
@@ -704,6 +711,22 @@ footer .cardfinal img{
             flex-direction: column;
             max-width: 350px;
             text-align: center;
+        }
+
+        .cart{
+            display: none;
+        }
+
+        .mobilecar{
+            display: block;
+        }
+
+        .desktext{
+            display: none;
+        }
+
+        .mobiletext{
+            display: block;
         }
     
         .habilidades .container{
