@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Sulphur+Point:wght@300;400;700&display=swap');
+
+:root{
+    --verdeescuro: #071b10;
+    --verdemédio: #084541;
+    --verdeclaro: #288b6f;
+    --verdelima: #a8ab30;
+    --verdemusgo: #c0bd6c;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+    font-family: "sulphur point";
+}
+
+button{
+        padding: 10px 30px;
+        text-transform: uppercase;
+        font-family: "sulphur point";
+        font-weight: 800;
+        font-size: 20px;
+        border-radius: 50px;
+        border: none;
+        transition: 0.3s ease-in-out;
+    }
+
+h1, h2, h3{
+    text-transform: uppercase;
+}
+
+.intro{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.intro h1{
+    font-size: 10rem;
+    font-weight: 1000;
+    color: #c0bd6c8c;
+}
+
+.intro .card-inicial{
+    position: fixed;
+    background-image: linear-gradient(to right,#288b6f, #2c332c);
+    margin-inline: 200px;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.8);
+    margin-top: 0px;
+    top: 0;
+    margin-top: 100px;
+    z-index: 102;
+    display: block;
+    transition: 0.2s ease-in-out;
+    animation: guardar-cartao;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-timeline: scroll(root block);
+    animation-range: 0 400px;
+}
+
+.intro .card-inicial.hidden{
+    display: none;
+}
+
+@keyframes guardar-cartao{
+    from {
+        transform: translateY(0) scale(1);
+    }
+    to {
+        transform: translateY(260px) rotateZ(25deg) scale(0.5);
+    }
+}
+
+.intro .card-inicial:hover{
+    outline: 3px solid var(--verdelima);
+}
+
+
+
+.intro .card-inicial .card{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-card{
+    padding: 50px;
+    text-align: left;
+    color: white;
+    border-bottom: 1px solid white;
+}
+
+.facul{
+    padding: 30px;
+    text-align: right;
+    color: white;
+    width: 100%;
+    background-image: linear-gradient(to right,#87c4b3,rgb(16, 73, 50));
+    border-top: 1px solid;
+}
+
+.img-card{
+    background-color: var(--verdeescuro);
+
+    img{
+        height: 350px;
+        margin-bottom: -5px;
+    }
+}
+
+.env{
+    position: relative;
+    background-color: #084541;
+    width: 80%;
+    border-radius: 20px;
+    height: 550px;
+    margin-top: 500px;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.env .paper{
+    background-color: #ffffff;
+    width: 90%;
+    margin-top: -50px;
+    height: 550px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    z-index: 101;
+}
+
+.env .cover{
+    background-image: linear-gradient(var(--verdeclaro), var(--verdemédio));
+    width: 100%;
+    margin-top: -350px;
+    border-radius: 20px;
+    height: 550px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+    z-index: 105;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    h1{
+        font-size: 8rem;
+        color: #288b6f; 
+    }
+
+    button{
+        margin-top: 150px;
+        background-image: linear-gradient(to right,var(--verdelima), var(--verdemusgo));
+        color: #084541;
+
+    }
+
+    button:hover{
+        box-shadow: 0px 0px 50px rgb(12, 255, 158);
+        cursor: pointer;
+    }
+}
+
+.shadowcard{
+    height: 50px;
+    width: 150px;
+    background-color: white;
+    margin-top: 200px;
+    border-radius: 50px;
+    box-shadow: inset 0px 5px 10px rgba(0, 0, 0, 0.8);
+}
+
+main{
+    position: relative;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 80px;
+}
+
+.navfixed{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-top: 30px;
+    background-color: rgba(146, 146, 146, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    border: 1px solid white;
+    border-radius: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s ease-in-out;
+}
+
+.navfixed.visible{
+    opacity: 1;
+    visibility: visible;
+}
+
+.navfixed button{
+    background-color: transparent;
+}
+
+.nav button{
+    margin-inline: 30px;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.nav button:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.nav button:focus{
+    background-image: linear-gradient(to left,var(--verdelima), var(--verdemusgo));
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+    outline: 2px solid white;
+}
+
+.nav button.desativo{
+    background-image: none;
+    box-shadow: none;
+    outline: none;
+}
+
+.navopen{
+    backdrop-filter: blur(5px);
+    margin-inline: 20px;
+    margin-top: 10px;
+    width: 450px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    border: 2px solid white;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s ease-in-out;
+}
+
+.navopen.active{
+    opacity: 1;
+    visibility: visible;
+}
+
+.navopen div{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.navopen a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: white;
+    transition: 0.2s ease-in-out;
+    border-radius: 10px;
+    padding-block: 10px;
+}
+
+.navopen a:hover{
+    background-image: linear-gradient(to left,var(--verdelima), var(--verdemusgo));
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
+    outline: 2px solid white;
+}
+
+.navopen a p{
+    margin: 0;
+    text-align: center;
+}
+
+.navopen .closenav{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+
+.aboutme{
+    text-align: center;
+    margin-inline: 100px;
+    margin-block: 40px;
+    z-index: 900;
+}
+
+
+.aboutme a{
+    background-color: rgb(115, 197, 115);
+    padding: 10px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 20px;
+    transition: 0.5s ease-in-out;
+    margin: 10px;
+    color: #084541;
+}
+
+.aboutme a:hover{
+    box-shadow: 0px 0px 20px rgba(6, 238, 56, 0.5);
+}
+
+.formação{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.cardform{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    height: 250px;
+    margin-top: 50px;
+}
+
+.formação .desktext{
+    background-color: white;
+    border-radius: 20px;
+    width: 500px;
+    align-items: center;
+    text-align: left;
+    padding: 30px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.8);
+}
+
+.envcapa{
+    background-image: linear-gradient(to left,rgb(12, 12, 105),rgb(9, 9, 150));
+    width: 500px;
+    padding-top: 60px;
+    margin-left: -170px;
+    border-radius: 5px 20px 20px 5px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.9);
+}
