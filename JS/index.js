@@ -10,7 +10,7 @@ function verificarScroll() {
     }
 }
 
-window.addEventListener('scroll', verificarScroll, { passive: true });
+window.addEventListener('scroll', verificarScroll, { passive:true });
 verificarScroll();
 
 const menu = document.getElementById('menu');
