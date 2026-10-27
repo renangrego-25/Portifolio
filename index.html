@@ -42,13 +42,13 @@
 
     <main>
         <div class="nav">
-            <button id="menu"><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/084541/circled-menu--v1.png" alt="circled-menu--v1"/>
+            <button class="menu" id="menu"><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/084541/circled-menu--v1.png" alt="circled-menu--v1"/>
             </button>
             <button id="curriculo"><img width="30" height="30" src="https://img.icons8.com/material-outlined/084541/resume.png" alt="resume"/></button>
         </div>
 
         <div class="navfixed" id="navbar">
-            <button id="menu"><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/084541/circled-menu--v1.png" alt="circled-menu--v1"/>
+            <button class="menu" id="menu-sobre"><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/084541/circled-menu--v1.png" alt="circled-menu--v1"/>
             </button>
             <button id="curriculo"><img width="30" height="30" src="https://img.icons8.com/material-outlined/084541/resume.png" alt="resume"/></button>
         </div>
@@ -58,10 +58,10 @@
                 <img width="50" height="50" src="https://img.icons8.com/ios-filled/084541/close-window.png" alt="close-window"/>
             </div>
             <div>
-                <a href="">
+                <a href="#sobre">
                     <img width="48" height="48" src="https://img.icons8.com/fluency-systems-filled/ffffff/about-me.png" alt="about-me"/>
                     <p>Sobre mim</p></a>
-                <a href="">
+                <a href="#formação">
                     <img width="48" height="48" src="https://img.icons8.com/ios-filled/ffffff/university.png" alt="university"/>
                     <p>Formação</p></a>
                 <a href="">
@@ -79,7 +79,18 @@
             </div>
         </div>
 
-        <section class="aboutme" id="about">
+        <section class="me">
+            <div class="textpessoal">
+                <h2>Eu sou</h2>
+                <h1>Renan <br> Gregorio</h1>
+                <h3>Desenvolvedor Front-end </h3>
+            </div>
+            <div class="imgpessoal">
+                <img src="images/img-pessoal.png" alt="">
+            </div>
+        </section>
+
+        <section class="aboutme" id="sobre">
             <h1>sobre mim</h1>
             <div class="about">
                 <p>Sou estudante de Ciência da Computação na UNIP, com previsão de formação para dezembro de 2027. Minha trajetória combina conhecimentos práticos em desenvolvimento web e tecnologias modernas, com habilidades sólidas em linguagens e ferramentas como HTML5, CSS3, JavaScript, Git e Github e conceitos de Inteligência Artificial. <br> <br> <strong>Objetivo:</strong> <br> <br> Busco uma oportunidade na área de TI ou desenvolvimento onde eu possa aplicar meus conhecimentos, agregar valor à equipe e continuar crescendo profissionalmente. Fico à disposição para uma entrevista, momento em que poderei detalhar melhor minhas competências. <br> <br>
@@ -89,11 +100,11 @@
             </div>
         </section>
 
-        <section class="formação">
+        <section class="formação" id="formação">
             <h1>Minha formação</h1>
 
             <div class="cardform">
-                <div class="desktext">
+                <div class="desktext" id="desktext">
                     <h2>Ciência da Computação</h2>
                     <h2>UNIP - Universidade paulista</h2>
                     <p>EAD - 6° semestre</p>

@@ -33,6 +33,12 @@ h1, h2, h3{
     text-transform: uppercase;
 }
 
+section{
+    margin-block: 100px;
+}
+
+
+
 .intro{
     text-align: center;
     align-items: center;
@@ -199,6 +205,7 @@ main{
     top: 0;
     left: 0;
     right: 0;
+    height: 60px;
     margin-top: 30px;
     background-color: rgba(146, 146, 146, 0.5);
     backdrop-filter: blur(5px);
@@ -208,6 +215,7 @@ main{
     opacity: 0;
     visibility: hidden;
     transition: 0.5s ease-in-out;
+    align-items: center;
 }
 
 .navfixed.visible{
@@ -242,6 +250,30 @@ main{
     outline: none;
 }
 
+.navfixed button{
+    margin-inline: 30px;
+    align-items: center;
+    border-radius: 10px;
+    height: 50px;
+}
+
+.navfixed button:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.navfixed button:focus{
+    background-image: linear-gradient(to left,var(--verdelima), var(--verdemusgo));
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+    outline: 2px solid white;
+}
+
+.navfixed button.desativo{
+    background-image: none;
+    box-shadow: none;
+    outline: none;
+}
+
 .navopen{
     backdrop-filter: blur(5px);
     margin-inline: 20px;
@@ -264,6 +296,14 @@ main{
 .navopen.active{
     opacity: 1;
     visibility: visible;
+}
+
+.navopen.cover{
+    opacity: 1;
+    visibility: visible;
+    top: 0;
+    margin-top: 100px;
+    position: fixed;
 }
 
 .navopen div{
@@ -304,14 +344,13 @@ main{
 
 .aboutme{
     text-align: center;
-    margin-inline: 100px;
+    margin-inline: 200px;
     margin-block: 40px;
     z-index: 900;
 }
 
-
 .aboutme a{
-    background-color: rgb(115, 197, 115);
+    background-image: linear-gradient(to right,var(--verdemédio),var(--verdeclaro));
     padding: 10px 30px;
     border-radius: 50px;
     text-decoration: none;
@@ -319,7 +358,8 @@ main{
     font-size: 20px;
     transition: 0.5s ease-in-out;
     margin: 10px;
-    color: #084541;
+    color: var(--verdemusgo);
+    transition: 0.5s ease-in-out;
 }
 
 .aboutme a:hover{
@@ -347,7 +387,13 @@ main{
     align-items: center;
     text-align: left;
     padding: 30px;
+    margin-right: -300px;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.8);
+    transition: 2s ease-in-out;
+}
+
+.formação .desktext.hover{
+    margin-right: 0px;
 }
 
 .envcapa{
@@ -357,4 +403,39 @@ main{
     margin-left: -170px;
     border-radius: 5px 20px 20px 5px;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.9);
+}
+
+.me{
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    margin-inline: 150px;
+    
+}
+
+.textpessoal{
+    text-align: left;
+
+    h1{
+        color: var(--verdeclaro);
+        font-size: 80px;
+    }
+
+    h3{
+        font-size: 35px;
+    }
+}
+
+.imgpessoal{
+    background-image: linear-gradient(var(--verdeescuro), var(--verdemédio));
+    border: 2px solid white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.8);
+}
+
+.imgpessoal img{
+    height: 400px;
+    margin-bottom: -5px;
+
 }
