@@ -18,6 +18,16 @@ html{
     font-family: "sulphur point";
 }
 
+body{
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.199), rgba(255, 255, 255, 0.226)),
+        url(../images/background.jfif);
+
+    background-repeat: repeat;
+    background-size: auto;
+    background-position: center;
+}
+
 button{
         padding: 10px 30px;
         text-transform: uppercase;
@@ -207,7 +217,8 @@ main{
     right: 0;
     height: 60px;
     margin-top: 30px;
-    background-color: rgba(146, 146, 146, 0.5);
+    background-image: linear-gradient(rgba(128, 128, 128, 0.473),rgba(124, 124, 124, 0.199));
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
     z-index: 1000;
     border: 1px solid white;
@@ -389,7 +400,7 @@ main{
     padding: 30px;
     margin-right: -300px;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.8);
-    transition: 2s ease-in-out;
+    transition: 0.5s ease-in-out;
 }
 
 .formação .desktext.hover{
@@ -409,8 +420,9 @@ main{
     display: flex;
     text-align: center;
     justify-content: space-between;
-    margin-inline: 150px;
-    
+    padding-inline: 150px;
+    overflow: hidden;
+    padding-block: 50px;
 }
 
 .textpessoal{
@@ -432,6 +444,7 @@ main{
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.8);
+    transition: 0.5s ease-in-out;
 }
 
 .imgpessoal img{
@@ -441,15 +454,48 @@ main{
 }
 
 .cursos{
-    padding-inline: 150px;
-    overflow-y: hidden;
+    padding-inline: 0px;
+    overflow: hidden;
+    margin-left: 150px;
 }
 
 .carrosel{
     display: flex;
+    flex-wrap: nowrap;
     gap: 100px;
     margin-top: 20px;
+    padding: 10px 5px 25px;
+
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-behavior: smooth;
+    scrollbar-width: none;
 }
+
+.carrosel::-webkit-scrollbar {
+    display: none;
+    
+}
+
+.btn-carrosel{
+    display: flex;
+    text-align: right;
+}
+
+.btn-carrosel button{
+    transition: 0.1s ease-in-out;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
+
+.btn-carrosel button:active{
+    transform: scale(0.9);
+}
+
 
 .card-1{
     max-width: 250px;
@@ -475,7 +521,7 @@ main{
 
     img{
         height: 50px;
-        margin-top: 20px;
+        margin-top: 30px;
     }
 
     a{
@@ -493,6 +539,7 @@ main{
 }
 
 .card-2{
+    margin-top: 50px;
     max-width: 250px;
     text-align: center;
     
@@ -516,7 +563,7 @@ main{
 
     img{
         height: 50px;
-        margin-top: 20px;
+        margin-bottom: 20px;
     }
 
     a{
@@ -533,3 +580,47 @@ main{
 }
 }
 
+.conhecimentos{
+    margin-inline: 150px;
+}
+
+.conhecimentos .content{
+    display: flex;
+    margin-top: 50px;
+}
+
+.card-selecao{
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(rgba(128, 128, 128, 0.473),rgba(124, 124, 124, 0.199));
+    backdrop-filter: blur(5px);
+    width: 40%;
+    border-radius: 20px;
+    outline: 2px solid white;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+}
+
+.card-selecao button{
+    background-color: transparent;
+    color: rgb(59, 59, 59);
+
+}
+
+.card-selecao button:focus{
+    outline: 3px solid var(--verdemusgo);
+    
+}
+
+.todositens{
+    display: flex;
+}
+
+.todositens .card{
+    height: 300px;
+    width: 200px;
+    background-color: white;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
+    margin-right: -150px;
+
+}

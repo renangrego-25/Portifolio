@@ -54,6 +54,7 @@ window.addEventListener('scroll', stopNavbar, { passive: true });
 stopNavbar();
 
 const opencard = 2200;
+
 const cardOpen = document.getElementById('desktext');
 
 function verificarcard() {
@@ -65,4 +66,30 @@ function verificarcard() {
 }
 
 window.addEventListener('scroll', verificarcard, { passive: true });
-openCard();
+verificarcard();
+
+
+// carrosel
+
+
+const carrosel = document.querySelector('.carrosel');
+const btnNext = document.querySelector('.next');
+const btnBack = document.querySelector('.back');
+
+const passo = 600;
+
+btnNext.addEventListener('click', () => {
+    carrosel.scrollBy({
+        left: passo,
+        behavior: 'smooth'
+    });
+});
+
+btnBack.addEventListener('click', () => {
+    carrosel.scrollBy({
+        left: -passo,
+        behavior: 'smooth'
+    });
+});
+
+
