@@ -137,12 +137,83 @@ botoes.forEach(botao => {
 
 const sobreExp = document.getElementById('sobreexp');
 const tivoli = document.getElementById('Tivoli');
+const trivus = document.getElementById('Trivus');
+const Main = document.getElementById('Main');
 
-document.getElementById('fecharexp').addEventListener('click', () => {
+const fecharexp = document.querySelectorAll('.fecharexp');
+
+fecharexp.forEach((fechar) => {
+    fechar.addEventListener('click', () => {
     sobreExp.classList.remove('active');
+})
 })
 
 document.getElementById('btn-tivoli').addEventListener('click', ()=>{
     tivoli.classList.add('active');
+    trivus.classList.remove('active');
+    Main.classList.remove('active');
     sobreExp.classList.add('active');
 })
+
+document.getElementById('btn-trivus').addEventListener('click', ()=>{
+    trivus.classList.add('active');
+    Main.classList.remove('active');
+    tivoli.classList.remove('active');
+    sobreExp.classList.add('active');
+})
+
+document.getElementById('btn-main').addEventListener('click', ()=>{
+    Main.classList.add('active');
+    tivoli.classList.remove('active');
+    trivus.classList.remove('active');
+    sobreExp.classList.add('active');
+})
+
+const botoesProjetos = document.querySelectorAll('.btnopenproj');
+const projetos = document.querySelectorAll('.projeto');
+const conteudos = document.querySelectorAll('.content-projetos');
+
+botoesProjetos.forEach(botao => {
+
+    botao.addEventListener('click', () => {
+
+        const projetoSelecionado = botao.closest('.projeto');
+
+        
+        if (projetoSelecionado.classList.contains('active')) {
+
+            projetos.forEach(projeto => {
+                projeto.classList.remove('active', 'hidden');
+
+                projeto.querySelector('button').textContent = 'ver detalhes';
+            });
+
+            conteudos.forEach(conteudo => {
+                conteudo.classList.remove('hidden');
+            });
+
+            return;
+        }
+
+        // Esconde todos os projetos
+        projetos.forEach(projeto => {
+            projeto.classList.remove('active');
+            projeto.classList.add('hidden');
+        });
+
+        // Esconde as linhas que não possuem o projeto selecionado
+        conteudos.forEach(conteudo => {
+            conteudo.classList.add('hidden');
+        });
+
+        // Ativa somente o projeto selecionado
+        projetoSelecionado.classList.remove('hidden');
+        projetoSelecionado.classList.add('active');
+
+        projetoSelecionado.querySelector('button').textContent = 'voltar';
+
+        projetoSelecionado.parentElement.classList.remove('hidden');
+
+    });
+
+});

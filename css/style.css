@@ -227,6 +227,7 @@ main{
     visibility: hidden;
     transition: 0.5s ease-in-out;
     align-items: center;
+    
 }
 
 .navfixed.visible{
@@ -750,7 +751,7 @@ main{
 }
 
 .exp:hover {
-    transform: scale(1.1) translateY(-30px) rotateZ(-2deg);
+    transform: scale(1.1) translateX(-15px) translateY(-30px) rotateZ(-2deg);
 
     button{
         display: block;
@@ -795,5 +796,166 @@ main{
 
     .text.active{
         display: block;
+    }
+}
+
+.projetos{
+    margin-inline: 150px;
+}
+
+.content-projetos{
+    margin-top: 50px;
+    display: flex;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+}
+
+.projeto{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+
+    h1{
+        font-size: 1.5rem;
+    }
+
+    img{
+        height: 200px;
+        transition: 0.2s ease-in-out;
+        padding-bottom: 20px;
+    }
+
+    button{
+        background-color: #288b6f;
+        opacity: 0;
+        visibility: hidden;
+        margin: 20px;
+    }
+
+    h3{
+        display: none;
+    }
+
+    p{
+        display: none;
+    }
+
+    .iconsproj{
+        display: none;
+    }
+}
+
+.projeto.hidden{
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.9);
+    pointer-events: none;
+}
+
+.content-projetos.hidden {
+    display: none;
+}
+
+.btn-proj-live{
+    display: none;
+    padding-top: 30px;
+
+    a{
+        text-decoration: none;
+        background-color: #a8ab30;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 30px;
+        text-transform: uppercase;
+        color: #084541;
+    }
+}
+
+.projeto.active {
+    position: absolute;
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    width: 500px;
+    max-width: 700px;
+    margin: auto;
+    height: 700px;
+
+    h1{
+        display: none;
+    }
+
+    h2{
+        display:none;
+    }
+
+    h3{
+        display: block;
+    }
+
+    p{
+        display: block;
+    }
+
+    img{
+        height: 300px;
+        transition: 0.2s ease-in-out;
+        padding-bottom: 20px;
+    }
+
+    img:hover{
+        transform: scale(1);
+    }
+
+    button{
+        background-color: #288b6f;
+        opacity: 0;
+        visibility: hidden;
+        margin: 20px;
+    }
+    .iconsproj{
+        display: block;
+        display: flex;
+        margin-top: 30px;
+
+
+        img{
+            height: 100px;
+        }
+    }
+
+    .btn-proj-live{
+        display: block;
+}
+}
+
+.projeto.active button {
+    opacity: 1;
+    visibility: visible;
+}
+
+.projeto:hover{
+    transform: scale(1.);
+
+    img{
+        transform: scale(1.05);
+    }
+
+    button{
+        opacity: 1;
+        visibility: visible;
+        cursor: pointer;
+        transition: 0.2s ease-in-out;
+    }
+
+    button:hover{
+        transform: scale(1.1);
     }
 }
