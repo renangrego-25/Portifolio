@@ -172,6 +172,7 @@ document.getElementById('btn-main').addEventListener('click', ()=>{
 const botoesProjetos = document.querySelectorAll('.btnopenproj');
 const projetos = document.querySelectorAll('.projeto');
 const conteudos = document.querySelectorAll('.content-projetos');
+const final = document.getElementById('final');
 
 botoesProjetos.forEach(botao => {
 
@@ -179,6 +180,7 @@ botoesProjetos.forEach(botao => {
 
         const projetoSelecionado = botao.closest('.projeto');
 
+        final.classList.add('space');
         
         if (projetoSelecionado.classList.contains('active')) {
 
@@ -190,6 +192,7 @@ botoesProjetos.forEach(botao => {
 
             conteudos.forEach(conteudo => {
                 conteudo.classList.remove('hidden');
+                final.classList.remove('space');
             });
 
             return;
