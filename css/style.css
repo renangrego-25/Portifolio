@@ -48,6 +48,14 @@ h1, h2, h3{
 
 section{
     margin-block: 100px;
+    opacity: 0;
+    visibility: hidden;
+    transition: 1s ease-in-out;
+}
+
+section.active{
+    opacity: 1;
+    visibility: visible;
 }
 
 a{
@@ -56,6 +64,50 @@ a{
 
 
 
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+
+::-webkit-scrollbar-track {
+    background: var(--verdeclaro);
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #0b4745;
+    border-radius: 5px;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
+    border: 1px solid white;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: #146b65;
+}
+
+.loading{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-image: linear-gradient(rgb(60, 82, 68), rgb(3, 49, 51));
+    top: 0;
+    margin-top: 0px;
+    z-index: 1500;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.loading.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
 
 .intro{
     text-align: center;
@@ -218,19 +270,17 @@ main{
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin-top: 80px;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: 60px;
-    margin-top: 30px;
+    height: 70px;
     background-image: linear-gradient(rgba(128, 128, 128, 0.473),rgba(124, 124, 124, 0.199));
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
     z-index: 1000;
     border: 1px solid white;
-    border-radius: 10px;
+    border-radius: 0px 0px 10px 10px;
     opacity: 0;
     visibility: hidden;
     transition: 0.5s ease-in-out;
@@ -389,6 +439,7 @@ main{
 }
 
 .formação{
+    margin-block: 150px;
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -465,12 +516,12 @@ main{
 }
 
 .cursos{
-    padding-inline: 0px;
     overflow: hidden;
-    margin-left: 150px;
+    text-align: center;
 }
 
 .carrosel{
+    padding-left: 0px;
     display: flex;
     flex-wrap: nowrap;
     gap: 100px;
@@ -493,7 +544,8 @@ main{
 
 .btn-carrosel{
     display: flex;
-    text-align: right;
+    text-align: center;
+    justify-content: center;
 }
 
 .btn-carrosel button{
@@ -501,16 +553,22 @@ main{
     cursor: pointer;
     background-color: transparent;
     border: none;
+    padding: 10px;
+    display: flex;
+
 }
 
 .btn-carrosel button:active{
     transform: scale(0.9);
+    background-color: var(--verdeclaro);
+    box-shadow: 0px 0px 10px rgb(12, 255, 158);
 }
 
 
 .card-1{
     max-width: 250px;
     text-align: center;
+     transition: 0.5s ease-in-out;
     
 
     .sobre-curso{
@@ -533,6 +591,7 @@ main{
     img{
         height: 50px;
         margin-top: 30px;
+         transition: 0.5s ease-in-out;
     }
 
     a{
@@ -553,6 +612,7 @@ main{
     margin-top: 50px;
     max-width: 250px;
     text-align: center;
+    transition: 0.5s ease-in-out;
     
 
     .sobre-curso{
@@ -575,6 +635,7 @@ main{
     img{
         height: 50px;
         margin-bottom: 20px;
+         transition: 0.5s ease-in-out;
     }
 
     a{
@@ -591,8 +652,25 @@ main{
 }
 }
 
+.card-1:hover{
+    transform: scale(0.9);
+
+    img{
+        transform: scale(1.2);
+    }
+}
+
+.card-2:hover{
+    transform: scale(0.9);
+
+    img{
+        transform: scale(1.2);
+    }
+}
+
 .conhecimentos{
     margin-inline: 150px;
+    text-align: center;
 }
 
 .conhecimentos .content{
@@ -649,7 +727,7 @@ main{
     text-align: center;
     background-color: white;
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);
-    width: 100%;
+    width: 600px;
 }
 
 .todositens .card.active{
@@ -808,15 +886,16 @@ main{
 }
 
 .projetos{
-    margin-inline: 150px;
+    height: auto;
+    text-align: center;
 }
 
 .content-projetos{
-    margin-top: 50px;
-    display: flex;
     text-align: center;
+    margin-top: 150px;
+    display: flex;
     width: 100%;
-    justify-content: center;
+    margin-left: 150px;
 }
 
 .projeto{
@@ -827,7 +906,7 @@ main{
     width: 350px;
     opacity: 1;
     visibility: visible;
-    transform: scale(1);
+    transform: scale(0.7);
     transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
 
     h1{
@@ -845,6 +924,9 @@ main{
         opacity: 0;
         visibility: hidden;
         margin: 20px;
+        padding: 5px 10px;
+        font-size: 15px;
+        color: white;
     }
 
     h3{
@@ -860,6 +942,34 @@ main{
     }
 }
 
+.open{
+    transform: scale(1.3);
+}
+
+.btn-carrosel-projetos{
+    text-align: left;
+    margin-left: -47px;
+    position: absolute;
+    margin-top: 230px;
+    z-index: 990;
+    display: flex;
+
+    button{
+        background-color: transparent;
+        margin-inline: 150px;
+        transition: 0.05s ease-in-out;
+        align-items: center;
+        display: flex;
+        padding: 10px;
+    }
+
+    button:active{
+        background-color: var(--verdeclaro);
+        box-shadow: 0px 0px 10px rgb(12, 255, 158);
+        transform: scale(0.9);
+    }
+}
+
 .projeto.hidden{
     opacity: 0;
     visibility: hidden;
@@ -869,6 +979,8 @@ main{
 
 .content-projetos.hidden {
     display: none;
+    justify-content: center;
+    text-align: center;
 }
 
 .btn-proj-live{

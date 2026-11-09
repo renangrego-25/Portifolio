@@ -7,7 +7,11 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <section class="intro">
+    <article class="loading">
+        <h1>Renan Gregorio</h1>
+        <h3>Desenvolvedor front-end</h3>
+    </article>
+    <section class="intro" id="intro">
         <h1>RENAN GREGORIO</h1>
         
         <div class="card-inicial" id="card-inicial">
@@ -41,7 +45,7 @@
     </section>
 
     <main>
-        <div class="nav">
+        <div class="nav" id="inicio">
             <button class="menu" id="menu"><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/084541/circled-menu--v1.png" alt="circled-menu--v1"/>
             </button>
             <button id="curriculo"><img width="30" height="30" src="https://img.icons8.com/material-outlined/084541/resume.png" alt="resume"/></button>
@@ -79,7 +83,7 @@
             </div>
         </div>
 
-        <section class="me" id="inicio">
+        <section class="me">
             <div class="textpessoal">
                 <h2>Eu sou</h2>
                 <h1>Renan <br> Gregorio</h1>
@@ -436,8 +440,13 @@
             <h1>Meus projetos</h1>
             <p>Projetos que desenvolvi, explore e veja um pouco sobre cada um deles e as ferramentas que utilizei.</p>
 
+            <div class="btn-carrosel-projetos">
+                <button class="back"><img width="50" height="50" src="https://img.icons8.com/ios/50/circled-chevron-left.png" alt="circled-chevron-left"/></button>
+                <button class="next"><img width="50" height="50" src="https://img.icons8.com/ios/50/circled-chevron-right--v1.png" alt="circled-chevron-right--v1"/></button>
+            </div>
+
             <div class="content-projetos">
-                <div class="projeto">
+                <div class="projeto open">
                     <img src="images/projetos/image-Photoroom (37).png" alt="trivus">
                     <h1>Website <br> Trivus Store</h1>
                     <h2>FEV - 2025</h2>
@@ -546,10 +555,6 @@
                     </div>
                     <button class="btnopenproj">ver detalhes</button>
                 </div>
-                
-            </div>
-
-            <div class="content-projetos">
 
                 <div class="projeto">
                     <img src="images/projetos/image-Photoroom (40).png" alt="trivus">
@@ -747,10 +752,9 @@
                                 <p>APIs</p>
                             </div>
                         </div>
-                    <button class="btnopenproj">ver detalhes</button>
-                </div>
-                
-            </div>
+                        <button class="btnopenproj">ver detalhes</button>
+                    </div>
+                </div>    
         </section>
 
         <footer class="final" id="final">
