@@ -68,6 +68,13 @@ function verificarcard() {
 window.addEventListener('scroll', verificarcard, { passive: true });
 verificarcard();
 
+const curriculo = document.getElementById('curriculo');
+const fecharCurriculo = document.getElementById('curriculo');
+
+curriculo.addEventListener('click', () => {
+    navbar.classList.add('open');
+})
+
 
 // carrosel
 
@@ -245,3 +252,120 @@ const loading = document.querySelector('.loading');
 setTimeout(() => {
     loading.classList.add('hidden');
 }, 2000);
+
+
+const carroselProjetos = document.querySelector('.content-projetos');
+const btnNext1 = document.getElementById('nextcarrosel');
+const btnBack2 = document.getElementById('backcarrosel');
+
+let animando = false;
+
+// Garante que somente o primeiro projeto esteja aberto
+function atualizarProjetoAtivo() {
+    const projetos = carroselProjetos.querySelectorAll('.projeto');
+
+    projetos.forEach(projeto => {
+        projeto.classList.remove('open');
+    });
+
+    projetos[0]?.classList.add('open');
+}
+
+// Movimento para a direita
+function proximoProjeto() {
+    if (animando) return;
+
+    const projetos = carroselProjetos.querySelectorAll('.projeto');
+
+    if (projetos.length < 2) return;
+
+    animando = true;
+
+    const primeiro = projetos[0];
+    const segundo = projetos[1];
+
+    // Calcula a distância entre os dois projetos
+    const distancia = segundo.getBoundingClientRect().left -
+                      primeiro.getBoundingClientRect().left;
+
+    // Desliza o carrossel para a esquerda
+    carroselProjetos.style.transform = `translateX(-${distancia}px)`;
+
+    carroselProjetos.addEventListener('transitionend', function finalizar(event) {
+
+        if (event.target !== carroselProjetos ||
+            event.propertyName !== 'transform') return;
+
+        carroselProjetos.removeEventListener('transitionend', finalizar);
+
+        // Leva o primeiro projeto para o final
+        carroselProjetos.appendChild(primeiro);
+
+        // Atualiza o projeto em destaque
+        atualizarProjetoAtivo();
+
+        // Reinicia a posição sem animação
+        carroselProjetos.style.transition = 'none';
+        carroselProjetos.style.transform = 'translateX(0)';
+
+        carroselProjetos.offsetHeight;
+
+        carroselProjetos.style.transition = '';
+
+        animando = false;
+    });
+}
+
+// Movimento para a esquerda
+function projetoAnterior() {
+    if (animando) return;
+
+    const projetos = carroselProjetos.querySelectorAll('.projeto');
+
+    if (projetos.length < 2) return;
+
+    animando = true;
+
+    const ultimo = projetos[projetos.length - 1];
+
+    // Coloca o último projeto no início
+    carroselProjetos.prepend(ultimo);
+
+    const novosProjetos = carroselProjetos.querySelectorAll('.projeto');
+
+    const primeiro = novosProjetos[0];
+    const segundo = novosProjetos[1];
+
+    const distancia = segundo.getBoundingClientRect().left -
+                      primeiro.getBoundingClientRect().left;
+
+    // Posiciona o carrossel antes de iniciar a animação
+    carroselProjetos.style.transition = 'none';
+    carroselProjetos.style.transform = `translateX(-${distancia}px)`;
+
+    carroselProjetos.offsetHeight;
+
+    // Anima o retorno à posição inicial
+    carroselProjetos.style.transition = '';
+    carroselProjetos.style.transform = 'translateX(0)';
+
+    carroselProjetos.addEventListener('transitionend', function finalizar(event) {
+
+        if (event.target !== carroselProjetos ||
+            event.propertyName !== 'transform') return;
+
+        carroselProjetos.removeEventListener('transitionend', finalizar);
+
+        atualizarProjetoAtivo();
+
+        animando = false;
+    });
+}
+
+// Eventos dos botões
+btnNext.addEventListener('click', proximoProjeto);
+btnBack.addEventListener('click', projetoAnterior);
+
+// Estado inicial
+atualizarProjetoAtivo();
+
