@@ -69,10 +69,16 @@ window.addEventListener('scroll', verificarcard, { passive: true });
 verificarcard();
 
 const curriculo = document.getElementById('curriculo');
-const fecharCurriculo = document.getElementById('curriculo');
+const fecharCurriculo = document.getElementById('fechar-curriculo');
 
 curriculo.addEventListener('click', () => {
     navbar.classList.add('open');
+    fecharCurriculo.classList.add('ativobtn');
+
+    fecharCurriculo.addEventListener('click', () => {
+        navbar.classList.remove('open');
+        fecharCurriculo.classList.remove('ativobtn');
+    })
 })
 
 
@@ -177,6 +183,7 @@ document.getElementById('btn-main').addEventListener('click', ()=>{
 })
 
 const botoesProjetos = document.querySelectorAll('.btnopenproj');
+const btncarroselPj= document.querySelectorAll('.btn-carrosel-projetos');
 const projetos = document.querySelectorAll('.projeto');
 const conteudos = document.querySelectorAll('.content-projetos');
 const final = document.getElementById('final');
@@ -187,7 +194,10 @@ botoesProjetos.forEach(botao => {
 
         const projetoSelecionado = botao.closest('.projeto');
 
-        final.classList.add('space');
+
+        btncarroselPj.forEach(btnC => {
+            btnC.classList.add('none')
+        });
         
         if (projetoSelecionado.classList.contains('active')) {
 
@@ -199,7 +209,9 @@ botoesProjetos.forEach(botao => {
 
             conteudos.forEach(conteudo => {
                 conteudo.classList.remove('hidden');
-                final.classList.remove('space');
+                btncarroselPj.forEach(btnC => {
+                btnC.classList.remove('none')
+                });
             });
 
             return;
@@ -254,118 +266,78 @@ setTimeout(() => {
 }, 2000);
 
 
-const carroselProjetos = document.querySelector('.content-projetos');
+const janela = document.querySelector('.janela-projetos');
+const carrossel = document.querySelector('.content-projetos');
 const btnNext1 = document.getElementById('nextcarrosel');
 const btnBack2 = document.getElementById('backcarrosel');
 
 let animando = false;
 
-// Garante que somente o primeiro projeto esteja aberto
-function atualizarProjetoAtivo() {
-    const projetos = carroselProjetos.querySelectorAll('.projeto');
+/* Garante que sempre haja itens suficientes para preencher a janela,
+   clonando os projetos existentes quando necessário (loop nunca vazio). */
+function garantirItensSuficientes() {
+  const originais = Array.from(carrossel.children);
+  if (originais.length === 0) return;
 
-    projetos.forEach(projeto => {
-        projeto.classList.remove('open');
-    });
-
-    projetos[0]?.classList.add('open');
+  let i = 0;
+  while (carrossel.children.length < 6 || carrossel.scrollWidth < janela.offsetWidth * 2) {
+    const clone = originais[i % originais.length].cloneNode(true);
+    clone.classList.remove('open');
+    carrossel.appendChild(clone);
+    i++;
+    if (i > 20) break; // segurança contra loop infinito
+  }
 }
 
-// Movimento para a direita
-function proximoProjeto() {
-    if (animando) return;
-
-    const projetos = carroselProjetos.querySelectorAll('.projeto');
-
-    if (projetos.length < 2) return;
-
-    animando = true;
-
-    const primeiro = projetos[0];
-    const segundo = projetos[1];
-
-    // Calcula a distância entre os dois projetos
-    const distancia = segundo.getBoundingClientRect().left -
-                      primeiro.getBoundingClientRect().left;
-
-    // Desliza o carrossel para a esquerda
-    carroselProjetos.style.transform = `translateX(-${distancia}px)`;
-
-    carroselProjetos.addEventListener('transitionend', function finalizar(event) {
-
-        if (event.target !== carroselProjetos ||
-            event.propertyName !== 'transform') return;
-
-        carroselProjetos.removeEventListener('transitionend', finalizar);
-
-        // Leva o primeiro projeto para o final
-        carroselProjetos.appendChild(primeiro);
-
-        // Atualiza o projeto em destaque
-        atualizarProjetoAtivo();
-
-        // Reinicia a posição sem animação
-        carroselProjetos.style.transition = 'none';
-        carroselProjetos.style.transform = 'translateX(0)';
-
-        carroselProjetos.offsetHeight;
-
-        carroselProjetos.style.transition = '';
-
-        animando = false;
-    });
+/* O primeiro item sempre é o ativo */
+function definirAtivo() {
+  Array.from(carrossel.children).forEach((item, index) => {
+    item.classList.toggle('open', index === 0);
+  });
 }
 
-// Movimento para a esquerda
-function projetoAnterior() {
-    if (animando) return;
-
-    const projetos = carroselProjetos.querySelectorAll('.projeto');
-
-    if (projetos.length < 2) return;
-
-    animando = true;
-
-    const ultimo = projetos[projetos.length - 1];
-
-    // Coloca o último projeto no início
-    carroselProjetos.prepend(ultimo);
-
-    const novosProjetos = carroselProjetos.querySelectorAll('.projeto');
-
-    const primeiro = novosProjetos[0];
-    const segundo = novosProjetos[1];
-
-    const distancia = segundo.getBoundingClientRect().left -
-                      primeiro.getBoundingClientRect().left;
-
-    // Posiciona o carrossel antes de iniciar a animação
-    carroselProjetos.style.transition = 'none';
-    carroselProjetos.style.transform = `translateX(-${distancia}px)`;
-
-    carroselProjetos.offsetHeight;
-
-    // Anima o retorno à posição inicial
-    carroselProjetos.style.transition = '';
-    carroselProjetos.style.transform = 'translateX(0)';
-
-    carroselProjetos.addEventListener('transitionend', function finalizar(event) {
-
-        if (event.target !== carroselProjetos ||
-            event.propertyName !== 'transform') return;
-
-        carroselProjetos.removeEventListener('transitionend', finalizar);
-
-        atualizarProjetoAtivo();
-
-        animando = false;
-    });
+/* Largura de um "slot" (distância entre o primeiro e o segundo item) */
+function larguraSlot() {
+  const [a, b] = carrossel.children;
+  return b.offsetLeft - a.offsetLeft;
 }
 
-// Eventos dos botões
-btnNext.addEventListener('click', proximoProjeto);
-btnBack.addEventListener('click', projetoAnterior);
+/* Desliza o contêiner de volta para a posição original */
+function animar(deslocamentoInicial) {
+  animando = true;
 
-// Estado inicial
-atualizarProjetoAtivo();
+  const anim = carrossel.animate(
+    [
+      { transform: `translateX(${deslocamentoInicial}px)` },
+      { transform: 'translateX(0)' }
+    ],
+    { duration: 400, easing: 'ease-out' }
+  );
 
+  anim.onfinish = () => { animando = false; };
+  anim.oncancel = () => { animando = false; };
+}
+
+function proximo() {
+  if (animando) return;
+
+  const slot = larguraSlot();
+  carrossel.appendChild(carrossel.firstElementChild); // primeiro vai pro final
+  definirAtivo();
+  animar(slot);
+}
+
+function voltar() {
+  if (animando) return;
+
+  const slot = larguraSlot();
+  carrossel.prepend(carrossel.lastElementChild); // último vai pro começo
+  definirAtivo();
+  animar(-slot);
+}
+
+btnNext1.addEventListener('click', proximo);
+btnBack2.addEventListener('click', voltar);
+
+garantirItensSuficientes();
+definirAtivo();

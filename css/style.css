@@ -86,8 +86,60 @@ a{
     background: #146b65;
 }
 
-.loading{
+@media (max-width:786px) {
+
+    body{
+        text-align: center;
+    }
+    .intro{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
     display: flex;
+    flex-direction: column;
+}
+
+.intro h1{
+    font-size: 3rem;
+    font-weight: 1000;
+    color: #c0bd6c8c;
+}
+
+.intro .card-inicial{
+    width: 350px;
+    text-align: center;
+
+    .card{
+        display: flex;
+        flex-direction: column;
+
+        h2{
+            text-align: center;
+        }
+        p{
+            text-align: center;
+        }
+    }
+}
+
+.intro .card-inicial.hidden{
+    display: none;
+}
+
+.img-card{
+    width: 100%;
+    height: 350px;
+    
+     img{
+        width: 100%;
+     }
+}
+
+    
+}
+
+.loading{
+    display: block;
     flex-direction: column;
     text-align: center;
     color: white;
@@ -270,60 +322,107 @@ main{
     }
 }
 
-.navfixed{
+
+.navfixed {
     display: flex;
     flex-direction: column;
+    align-items: center;
+
     width: 100%;
+    height: 70px;
+
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: 70px;
-    background-image: linear-gradient(rgba(128, 128, 128, 0.473),rgba(124, 124, 124, 0.199));
+
+    background-image: linear-gradient(
+        rgba(128, 128, 128, 0.473),
+        rgba(124, 124, 124, 0.199)
+    );
+
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
+
     z-index: 1000;
     border: 1px solid white;
     border-radius: 0px 0px 10px 10px;
+
     opacity: 0;
     visibility: hidden;
     transition: 0.5s ease-in-out;
-    align-items: center;
 
-    .curriculo{
-        display: none;
-    }
+    overflow: hidden;
 }
 
-.navfixed .btns{
+/* BOTÕES */
+.navfixed .btns {
+    width: 100%;
+    height: 70px;
+    flex: 0 0 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+
+    position: relative;
+    z-index: 2;
+}
+
+/* CURRÍCULO */
+.card-curri {
     width: 100%;
     display: flex;
-    margin: auto;
-    text-align: center;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 
-.navfixed.open{
+.curriculo {
+    display: none;
+}
+
+/* NAVBAR ABERTA */
+.navfixed.open {
     height: 100vh;
     width: 100vw;
-    overflow-y: scroll;
+    background-color: #0f793f59;
 
-    .curriculo{
-        text-align: center;
-        align-items: center;
-        height: 550px;
-        display: block;
-        margin-top: 50px;
-        padding-bottom: 50px;
-        transition: 0.5s ease-in-out;
-    }
+    overflow-y: auto;
+    overflow-x: hidden;
 
-    .curriculo:hover{
-        transform: scale(1.2);
-    }
+    border-radius: 0;
 }
 
-#fechar-curriculo{
+.navfixed.open .curriculo {
+    display: block;
+
+    width: auto;
+    height: 550px;
+    max-width: 90%;
+
+    object-fit: contain;
+
+    margin-top: 30px;
+    padding-bottom: 50px;
+
+    transition: 0.5s ease-in-out;
+}
+
+.navfixed.open .curriculo:hover {
+    transform: scale(1.4);
+}
+
+.card-curri{
+    margin-top: 20px;
+}
+
+
+.fechar-curriculo{
     display: none;
 }
 
@@ -615,7 +714,7 @@ main{
 .card-1{
     max-width: 250px;
     text-align: center;
-     transition: 0.5s ease-in-out;
+     transition: 0.1s ease-in-out;
     
 
     .sobre-curso{
@@ -638,7 +737,7 @@ main{
     img{
         height: 50px;
         margin-top: 30px;
-         transition: 0.5s ease-in-out;
+         transition: 0.1s ease-in-out;
     }
 
     a{
@@ -651,7 +750,7 @@ main{
     transition: 0.5s ease-in-out;
     margin: 10px;
     color: var(--verdemusgo);
-    transition: 0.5s ease-in-out;
+    transition: 0.1s ease-in-out;
 }
 }
 
@@ -659,7 +758,7 @@ main{
     margin-top: 50px;
     max-width: 250px;
     text-align: center;
-    transition: 0.5s ease-in-out;
+    transition: 0.1s ease-in-out;
     
 
     .sobre-curso{
@@ -682,7 +781,7 @@ main{
     img{
         height: 50px;
         margin-bottom: 20px;
-         transition: 0.5s ease-in-out;
+         transition: 0.1s ease-in-out;
     }
 
     a{
@@ -951,6 +1050,7 @@ main{
     flex-direction: column;
     align-items: center;
     width: 350px;
+    flex-shrink: 0; /* impede que os itens encolham dentro do flex */
     opacity: 1;
     visibility: visible;
     transform: scale(0.7);
@@ -974,6 +1074,7 @@ main{
         padding: 5px 10px;
         font-size: 15px;
         color: white;
+        transition: 0.2s ease-in-out;
     }
 
     h3{
@@ -1034,6 +1135,10 @@ main{
     }
 }
 
+.btn-carrosel-projetos.none{
+    display: none;
+}
+
 .projeto.hidden{
     opacity: 0;
     visibility: hidden;
@@ -1062,15 +1167,28 @@ main{
     }
 }
 
+.sobreprojeto{
+    width: 500px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
 .projeto.active {
+    text-align: center;
+    justify-content: center;
     position: absolute;
     opacity: 1;
     visibility: visible;
     transform: scale(1);
-    width: 500px;
-    max-width: 700px;
-    margin: auto;
-    height: 700px;
+    width: 100%;
+    margin-left: -150px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    text-align: center;
 
     h1{
         display: none;
@@ -1118,6 +1236,35 @@ main{
     .btn-proj-live{
         display: block;
 }
+}
+
+.projeto.active .iconsproj{
+    display: flex;
+    flex-wrap: wrap;          /* quebra os ícones em várias linhas */
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 500px;         /* mesma largura do .sobreprojeto */
+    margin-top: 20px;
+
+    .item{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 70px;
+    }
+
+    img{
+        height: 80px;         
+        width: 80px;
+        padding-bottom: 0;
+    }
+
+    p{
+        display: block;
+        font-size: 12px;
+        margin: 5px 0 0;
+    }
 }
 
 .projeto.active button {
@@ -1210,3 +1357,4 @@ main{
     color: rgba(25, 102, 71, 0.466);
 
 }
+
