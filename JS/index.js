@@ -18,10 +18,16 @@ const nav = document.getElementById('navOpen');
 const navbar = document.getElementById('navbar');
 const menuSobre = document.getElementById('menu-sobre');
 
+const linkbtn = document.getElementById('btn-links');
+
 menu.addEventListener('click', () => {
     
     nav.classList.add('active');
     menu.classList.remove('desativo');
+
+    linkbtn.addEventListener('click', () => {
+        nav.classList.remove('active');
+    });
 
     document.getElementById('closenav').addEventListener('click', () => {
         nav.classList.remove('active');
@@ -40,9 +46,11 @@ menuSobre.addEventListener('click', () => {
     })
 })
 
-const stopNav = 1450;
+const mobile = window.matchMedia("(max-width: 786px)");
 
 function stopNavbar() {
+    const stopNav = mobile.matches ? 300 : 1450; 
+
     if (window.scrollY >= stopNav) {
         navbar.classList.add('visible');
     } else {
@@ -51,6 +59,7 @@ function stopNavbar() {
 }
 
 window.addEventListener('scroll', stopNavbar, { passive: true });
+mobile.addEventListener('change', stopNavbar);
 stopNavbar();
 
 const opencard = 2200;
