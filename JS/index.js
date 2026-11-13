@@ -191,62 +191,30 @@ document.getElementById('btn-main').addEventListener('click', ()=>{
     sobreExp.classList.add('active');
 })
 
-const botoesProjetos = document.querySelectorAll('.btnopenproj');
-const btncarroselPj= document.querySelectorAll('.btn-carrosel-projetos');
-const projetos = document.querySelectorAll('.projeto');
-const conteudos = document.querySelectorAll('.content-projetos');
-const final = document.getElementById('final');
+const btncarroselPj = document.querySelectorAll('.btn-carrosel-projetos');
+const contentProjetos = document.querySelector('.content-projetos');
 
-botoesProjetos.forEach(botao => {
+contentProjetos.addEventListener('click', (e) => {
+    const botao = e.target.closest('.btnopenproj');
+    if (!botao) return;
 
-    botao.addEventListener('click', () => {
+    const projeto = botao.closest('.projeto');
+    const abrindo = !projeto.classList.contains('active');
 
-        const projetoSelecionado = botao.closest('.projeto');
-
-
-        btncarroselPj.forEach(btnC => {
-            btnC.classList.add('none')
-        });
-        
-        if (projetoSelecionado.classList.contains('active')) {
-
-            projetos.forEach(projeto => {
-                projeto.classList.remove('active', 'hidden');
-
-                projeto.querySelector('button').textContent = 'ver detalhes';
-            });
-
-            conteudos.forEach(conteudo => {
-                conteudo.classList.remove('hidden');
-                btncarroselPj.forEach(btnC => {
-                btnC.classList.remove('none')
-                });
-            });
-
-            return;
-        }
-
-        // Esconde todos os projetos
-        projetos.forEach(projeto => {
-            projeto.classList.remove('active');
-            projeto.classList.add('hidden');
-        });
-
-        // Esconde as linhas que não possuem o projeto selecionado
-        conteudos.forEach(conteudo => {
-            conteudo.classList.add('hidden');
-        });
-
-        // Ativa somente o projeto selecionado
-        projetoSelecionado.classList.remove('hidden');
-        projetoSelecionado.classList.add('active');
-
-        projetoSelecionado.querySelector('button').textContent = 'voltar';
-
-        projetoSelecionado.parentElement.classList.remove('hidden');
-
+    // fecha qualquer projeto que esteja aberto
+    contentProjetos.querySelectorAll('.projeto.active').forEach(p => {
+        p.classList.remove('active');
+        p.querySelector('.btnopenproj').textContent = 'ver detalhes';
     });
 
+    // marca o contêiner e esconde/mostra os botões do carrossel
+    contentProjetos.classList.toggle('detalhes-aberto', abrindo);
+    btncarroselPj.forEach(b => b.classList.toggle('none', abrindo));
+
+    if (abrindo) {
+        projeto.classList.add('active');
+        botao.textContent = 'voltar';
+    }
 });
 
 const sections = document.querySelectorAll('section');

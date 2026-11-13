@@ -1227,6 +1227,12 @@ main{
     visibility: visible;
 }
 
+.content-projetos.detalhes-aberto .projeto:not(.active){
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
 
 .final{
     width: 100%;
@@ -1394,6 +1400,40 @@ main{
 
     .experiencias{
         display: none;
+    }
+
+    .exp-mobile{
+        background-color: var(--verdemédio);
+        color: white;
+        margin: 10px;
+        border-radius: 20px;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+        padding: 15px;
+
+        img{
+            height: 100px;
+            border-radius: 10px;
+        }
+    }
+    
+
+    /* Capa da pasta: fica na frente e sobrepõe só a base do último card */
+    .coberturacartao{
+        display: none;
+    }
+
+    .exp:nth-child(1) {
+        z-index: 0;
+    }
+    
+    
+    .exp:nth-child(2) {
+        z-index: 0;
+    }
+    
+    
+    .exp:nth-child(3) {
+        z-index: 0;
     }
 
     .final{
@@ -1662,6 +1702,7 @@ main{
     }
 
     .finalmobile{
+        margin-top: -300px;
         width: 100%;
         margin-bottom: 0px;
         text-align: center;
