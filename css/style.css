@@ -1323,6 +1323,10 @@ main{
     display: none;
 }
 
+.exp-paper-mobile{
+        display: none;
+}
+
 @media screen and (max-width:786px) {
 
     /* ====== SEU CÓDIGO ORIGINAL (mantido) ====== */
